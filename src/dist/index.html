@@ -15,7 +15,7 @@
       integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="styles.min.css" />
+    <link rel="stylesheet" href="./styles.min.css" />
   </head>
   <body>
     <!-- header -->
@@ -25,20 +25,23 @@
     <!-- main -->
     <main class="main">
       <div class="todo">
-        <form action="#" class="todo__form">
+        <form class="todo__form">
           <input type="text" class="todo__input" />
           <button type="submit" class="todo__btn">
             <i class="fas fa-plus"></i>
           </button>
         </form>
-      </div>
-      <div class="todos">
-        <ul class="todos__list"></ul>
+        <ul class="todo__list"></ul>
       </div>
     </main>
     <!-- footer -->
     <footer></footer>
     <!-- scripts -->
-    <script src="index.prod.js"></script>
+    <script
+      type="text/javascript"
+      src="./index.prod.js"
+      charset="utf-8"
+      defer
+    ></script>
   </body>
 </html>
