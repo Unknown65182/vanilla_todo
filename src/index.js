@@ -1,9 +1,8 @@
 import "./styles.scss";
 
 import { Todo } from "./Todo";
-import { TodoList } from "./TodoList";
 
-const todos = new TodoList([]);
+const todos = [];
 
 // Selectors
 const todoInput = document.querySelector(".todo__input");
@@ -16,10 +15,10 @@ todoButton.addEventListener("click", addTodo);
 // Functions
 function addTodo(event) {
   event.preventDefault();
+  const ids = todos.map((v) => v.id);
 
-  //   ;)
-
-  const todo = new Todo();
+  const todo = new Todo(uniqueId(ids), todoInput.value, false);
+  todos.push(todo);
 
   const todoItem = document.createElement("li");
   const todoText = document.createElement("p");
@@ -29,7 +28,7 @@ function addTodo(event) {
   todoItem.classList.add("todo__item");
 
   todoText.classList.add("todo__text");
-  todoText.innerText = "new Todo";
+  todoText.innerText = todo.value;
 
   todoRemove.classList.add("todo__remove");
   removeIcon.classList.add("fas", "fa-minus");
@@ -43,7 +42,9 @@ function addTodo(event) {
 }
 
 function removeTodo(event) {
-  if (event.target === document.querySelector(".fa-minus")) {
+  if (
+    Array.from(document.querySelectorAll(".fa-minus")).includes(event.target)
+  ) {
     todoList.removeChild(event.target.parentElement.parentElement);
   } else {
     todoList.removeChild(event.target.parentElement);
@@ -61,5 +62,3 @@ function uniqueId(ids) {
   }
   return id;
 }
-
-console.log(uniqueId([2345, 7643]));
