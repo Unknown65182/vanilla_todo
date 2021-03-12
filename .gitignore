@@ -1,7 +1,6 @@
 .vscode
 node_modules
 yarn.lock
+yarn-error.log
 
-src/dist/index.*.js
-src/dist/styles.css
-src/dist/styles.*.*
+dist
