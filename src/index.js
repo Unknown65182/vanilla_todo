@@ -22,10 +22,18 @@ function addTodo(event) {
   todoRemove.classList.add("todo__remove");
   removeIcon.classList.add("fas", "fa-minus");
 
+  todoRemove.addEventListener("click", removeTodo);
+
   todoRemove.appendChild(removeIcon);
   todoItem.appendChild(todoText);
   todoItem.appendChild(todoRemove);
   todoList.appendChild(todoItem);
+}
 
-  console.log("hello");
+function removeTodo(event) {
+  if (event.target === document.querySelector(".fa-minus")) {
+    todoList.removeChild(event.target.parentElement.parentElement);
+  } else {
+    todoList.removeChild(event.target.parentElement);
+  }
 }
